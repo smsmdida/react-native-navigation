@@ -22,7 +22,11 @@ public class SideMenu extends DrawerLayout {
 
     @Override
     public void setDrawerLockMode(int lockMode, int edgeGravity) {
-        int currentLockMode = getDrawerLockMode(edgeGravity);
-        if (currentLockMode != lockMode) super.setDrawerLockMode(lockMode, edgeGravity);
+        try {
+            int currentLockMode = getDrawerLockMode(edgeGravity);
+            if (currentLockMode != lockMode) super.setDrawerLockMode(lockMode, edgeGravity);
+        } catch (IllegalArgumentException e) {
+            Log.w("RNN", "Tried to open sideMenu, but it's not defined");
+        }
     }
 }
