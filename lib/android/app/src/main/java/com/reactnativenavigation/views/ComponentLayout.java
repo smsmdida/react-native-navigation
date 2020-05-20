@@ -45,10 +45,6 @@ public class ComponentLayout extends CoordinatorLayout implements ReactComponent
         reactView.destroy();
     }
 
-    public void start() {
-        reactView.start();
-    }
-
 	public void sendComponentStart() {
 		reactView.sendComponentStart(ComponentType.Component);
 	}

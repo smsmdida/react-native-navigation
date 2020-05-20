@@ -4,7 +4,6 @@ import android.app.Activity;
 
 import com.reactnativenavigation.anim.NavigationAnimator;
 import com.reactnativenavigation.parse.Options;
-import com.reactnativenavigation.presentation.FabPresenter;
 import com.reactnativenavigation.presentation.Presenter;
 import com.reactnativenavigation.presentation.StackPresenter;
 import com.reactnativenavigation.react.events.EventEmitter;
@@ -29,7 +28,6 @@ public class StackControllerBuilder {
     private StackPresenter stackPresenter;
     private List<ViewController> children = new ArrayList<>();
     private EventEmitter eventEmitter;
-    private FabPresenter fabPresenter = new FabPresenter();
 
     public StackControllerBuilder(Activity activity, EventEmitter eventEmitter) {
         this.activity = activity;
@@ -92,11 +90,6 @@ public class StackControllerBuilder {
         return this;
     }
 
-    public StackControllerBuilder setFabPresenter(FabPresenter fabPresenter) {
-        this.fabPresenter = fabPresenter;
-        return this;
-    }
-
     public StackController build() {
         return new StackController(activity,
                 children,
@@ -108,8 +101,7 @@ public class StackControllerBuilder {
                 initialOptions,
                 backButtonHelper,
                 stackPresenter,
-                presenter,
-                fabPresenter
+                presenter
         );
     }
 }
