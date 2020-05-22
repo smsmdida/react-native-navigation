@@ -21,6 +21,15 @@ public class SideMenu extends DrawerLayout {
     }
 
     @Override
+    public void closeDrawer(int gravity, boolean animate) {
+        try {
+            super.closeDrawer(gravity, animate);
+        } catch (IllegalArgumentException e) {
+            Log.w("RNN", "Tried to close sideMenu, but it's not defined");
+        }
+    }
+
+    @Override
     public void setDrawerLockMode(int lockMode, int edgeGravity) {
         try {
             int currentLockMode = getDrawerLockMode(edgeGravity);
